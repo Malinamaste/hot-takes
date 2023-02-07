@@ -34,10 +34,11 @@ router.put('/:id', auth, multer, saucesCtrl.modifySauce);
 *************************************************/
 router.post('/:id/like', auth, saucesCtrl.likesAndDislikes);
 
-/******************************************
-          Suppression d'une sauce
-******************************************/
+/****************************************************
+                Suppression d'une sauce
+****************************************************/
 router.delete('/:id', auth, saucesCtrl.deleteSauce);
+
 
 // On exporte le router de ce fichier :
 module.exports = router;
