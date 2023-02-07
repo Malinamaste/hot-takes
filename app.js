@@ -36,13 +36,14 @@ app.use((req, res, next) => {
 });
 
 
-// Pour gérer la requête POST venant de l'application front-end on a besoin d'en extraire le corps JSON. Pour cela, vous avez juste besoin d'un middleware très simple, mis à disposition par le framework Express
+// Transforme les données des requêtes POST en objet JSON
 app.use(express.json());
-// Avec ceci, Express prend toutes les requêtes qui ont comme Content-Type application/json et met à disposition leur body directement sur l'objet req.
 
-// Pour ces routes là, on utlise ces routers :
+// Routes utilisées
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
+
+// Middleware qui permet l'accès statique à des images _dirname = nom du dossier où nous sommes
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;

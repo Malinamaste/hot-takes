@@ -18,7 +18,7 @@ exports.signup = ((req, res, next) => {
     .catch(error => res.status(500).json({ error }));
 });
 
-// Pour une connection : 
+// Pour une connexion : 
 exports.login = ((req, res, next) => {
   User.findOne({ email: req.body.email })
     .then(user => {
@@ -40,12 +40,8 @@ exports.login = ((req, res, next) => {
               });
             }
           })
-          .catch(error => {
-            res.status(500).json({ error });
-          });
+          .catch(error => { res.status(500).json({ error }) });
       }
     })
-    .catch(error => {
-      res.status(500).json({ error });
-    });
+    .catch(error => { res.status(500).json({ error }) });
 });
