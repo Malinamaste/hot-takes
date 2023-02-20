@@ -5,12 +5,18 @@ const fs = require('fs');
 // Pour créer une sauce :
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
+  const { name, heat, description, mainPepper, manufacturer } = sauceObject;
   delete sauceObject._id;
   delete sauceObject.userId;
+
   const sauce = new Sauce({
-    ...sauceObject,
     userId: req.auth.userId,
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+    name,
+    description,
+    heat,
+    mainPepper,
+    manufacturer
   });
 
   sauce.save()
