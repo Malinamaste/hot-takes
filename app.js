@@ -1,13 +1,18 @@
 // Import de Express :
 const express = require('express');
-const app = express();
 // Import de Mongoose :
 const mongoose = require('mongoose');
+const path = require('path');
 
+// Import des packages de sécurité
+//const cors = require('cors');
+//const helmet = require('helmet');
+
+// Import des routes sauces et user
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 
-const path = require('path');
+const app = express();
 
 // Importation de Mongoose :
 mongoose.connect('mongodb+srv://malinamaste:niokman4ever@cluster0.g6opnco.mongodb.net/?retryWrites=true&w=majority',
@@ -35,6 +40,11 @@ app.use((req, res, next) => {
   next();
 });
 
+
+// Cors
+//app.use(cors());
+// Extra headers pour plus de sécurité -> routes
+//app.use(helmet());
 
 // Transforme les données des requêtes POST en objet JSON
 app.use(express.json());

@@ -1,10 +1,9 @@
 // on importe express :
 const express = require('express');
+const router = express.Router();
 
 const auth = require('../middleware/auth');
 const multer = require('../middleware/multer-config');
-
-const router = express.Router();
 
 // On importe notre Controller Sauce :
 const saucesCtrl = require('../controllers/sauces');
