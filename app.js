@@ -29,7 +29,6 @@ app.use(cors());
 // Extra headers pour plus de sécurité -> routes
 app.use(helmet({ crossOriginResourcePolicy: false }));
 
-
 // Transforme les données des requêtes POST en objet JSON
 app.use(express.json());
 
