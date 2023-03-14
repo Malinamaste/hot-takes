@@ -1,5 +1,6 @@
 // On importe notre modèle Sauce car on l'utilise ici :
 const Sauce = require('../models/Sauce');
+// file system => accès aux fonctions pour modifier le système de fichiers et supprimer les fichiers
 const fs = require('fs');
 
 // Pour afficher toutes les sauces :

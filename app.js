@@ -1,28 +1,23 @@
+require('dotenv').config()
+// Import de Mongoose :
+const mongooseConnexion = require("./config/db")
+
 // Import de Express :
 const express = require('express');
-// Import de Mongoose :
-const mongoose = require('mongoose');
 const path = require('path');
 
 // Import des packages de sécurité
 const cors = require('cors');
 const helmet = require('helmet');
 
+// MongoDB connexion
+mongooseConnexion(process.env.MONGODB_URL);
+
 // Import des routes sauces et user
 const userRoutes = require('./routes/user');
 const saucesRoutes = require('./routes/sauces');
 
 const app = express();
-
-// Importation de Mongoose :
-mongoose.connect('mongodb+srv://malinamaste:niokman4ever@cluster0.g6opnco.mongodb.net/?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log('Connexion à MongoDB réussie !'))
-  .catch(() => console.log('Connexion à MongoDB échouée !'));
-
 
 // Cors
 app.use(cors());

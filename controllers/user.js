@@ -24,7 +24,7 @@ exports.login = ((req, res, next) => {
       if (user === null) {
         res.status(401).json({ message: 'Paire identifiant/mot de passe incorrecte' });
       } else {
-        bcrypt.compare(req.body.password, user.password)
+        bcrypt.compare(req.body.password, user.password) //Comparaison du mot de passe entré par l'utilisateur avec le hash enregistré dans la base de données
           .then(valid => {
             if (!valid) {
               res.status(401).json({ message: 'Paire identifiant/mot de passe incorrecte' });

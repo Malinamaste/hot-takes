@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // Quelques améliorations à notre fichier server.js, pour le rendre plus stable et approprié pour le déploiement...
 const http = require('http');
 const app = require('./app');
